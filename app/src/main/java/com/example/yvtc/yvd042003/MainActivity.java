@@ -31,6 +31,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         myfile = new File(getFilesDir() + File.separator + "mydata.json");
         lv = (ListView) findViewById(R.id.listView);
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         showdata = new ArrayList<>();
         if (myfile.exists())
         {
