@@ -1,7 +1,10 @@
 package com.example.yvtc.yvd042003;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -32,7 +35,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             } catch (IOException e) {
@@ -40,7 +42,21 @@ public class MainActivity extends AppCompatActivity {
             }
 
         }
+    }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        menu.add("Add");
+        return super.onCreateOptionsMenu(menu);
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getTitle().equals("Add"))
+        {
+            Intent it = new Intent(MainActivity.this, AddActivity.class);
+            startActivity(it);
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
